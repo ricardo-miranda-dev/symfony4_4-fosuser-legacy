@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,  user-scalable=no, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="description" content="MENU PRINCIPAL">
+    <meta name="DataFact" content="DataFact">
+    <title>{% if titulobase is defined %} {{ titulobase|raw }} {% else %} {{'Sistema Integral'}} {% endif %}</title>
+    {% image '@AppBundle/Resources/public/images/favicon.ico' %}
+        <link rel="icon" href="{{ asset_url }}">
+    {% endimage %}
+    {% block stylesheets %}
+        {% stylesheets
+            '@AppBundle/Resources/public/ccs/bootstrap3/dist/css/bootstrap.css'
+            '@AppBundle/Resources/public/ccs/bootstrap3/dist/css/bootstrap.min.css'
+            '@AppBundle/Resources/public/ccs/bootstrap3/dist/css/bootstrap-theme.min.css'
+            '@AppBundle/Resources/public/ccs/datepicker.css'
+            'bundles/app/ccs/jarvis.css'
+             filter='cssrewrite'
+        %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+    {% endblock %}
+    {% javascripts
+        '@AppBundle/Resources/public/js/jquery.min.js'
+        '@AppBundle/Resources/public/js/bootstrap-datepicker.js'
+        '@AppBundle/Resources/public/js/bootstrap.min.js'
+        '@AppBundle/Resources/public/js/bootbox.min.js'
+        '@AppBundle/Resources/public/js/jquery.bootstrap-growl.js'
+        '@AppBundle/Resources/public/js/principal.js'
+        output='js/compiled/app.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+</head>
+<nav class="navbar navbar-default" role="navigation">
+    <table border="0px" align="center">
+        <tr>
+            <td width="15%" align="left"> <div class="navbar-header" align="left">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    {% image '@AppBundle/Resources/public/images/version_horizontal.png' %}
+
+                    <a target = "_blank" href=" {% if link[0] is defined %}  {{ link[0] }}  {% else %} {{ 'menu' }} {% endif %}" align="right"><img class="logotop1" src="{{ asset_url }}"  /></a>
+                    {% endimage %}
+                    &nbsp;
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"  data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Desplegar navegaci&oacute;n</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+            </td>
+            <td width="55%" align="center" style="color: #90908C; font-size: 30px;"><b>{% if titulobase is defined %} {{ titulobase|raw }} {% endif %}</b></td>
+            <td width="40%" align="rigth">
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <ul class="nav navbar-nav  navbar-right ">
+                        <li><a target = "_blank" href="http://servercc3:8080/" align="right"><span id="JIRA">Jira</span></a></li>
+                        <li><a target = "_blank" href="http://serveramb:8090/" align="right"><span id="CONFLUENCE">Confluence</span></a></li>
+                        <li><a target = "_blank" href="#" align="right"><span id="HELP_ME"> Ayuda </span></a></li>
+                        <li><a target = "_blank" href="micuenta" align="right"><span id="INFO_USER">Mi cuenta</span></a></li>
+                        <li> <a href="{{ path('fos_user_security_logout') }}" align="right">  <span id="LOGOUT"> Salir </span></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-10 col-md-offset-2">
+                    <p class="text-success h6 " align="right">
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            {{ 'Sesion Activa: %username%'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                        {% else %}
+                            <a href="{{ path('fos_user_security_login') }}">{{ ''|trans({}, 'FOSUserBundle') }}</a>
+                        {% endif %}
+                    </p>
+                </div>
+
+            </td>
+        </tr>
+    </table>
+</nav>
+<!--
+<nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header" align="left">
+        {% image '@AppBundle/Resources/public/images/version_horizontal.png' %}
+
+        <a target = "_blank" href=" {% if link[0] is defined %}  {{ link[0] }}  {% else %} {{ 'menu' }} {% endif %}" align="right"><img class="logotop1" src="{{ asset_url }}"  /></a>
+        {% endimage %}
+
+        &nbsp;
+
+        <button type="button" class="navbar-toggle" data-toggle="collapse"  data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Desplegar navegaci�n</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+    <td width="50%" align="center" style="color: #90908C; font-size: 30px;"><b>{% if titulobase is defined %} {{ titulobase|raw }} {% endif %}</b></td>
+    <td width="40%" align="rigth">
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav  navbar-right ">
+            <li><a target = "_blank" href="http://servercc3:8080/" align="right"><span id="JIRA">Jira</span></a></li>
+            <li><a target = "_blank" href="http://serveramb:8090/" align="right"><span id="CONFLUENCE">Confluence</span></a></li>
+            <li><a target = "_blank" href="help.php" align="right"><span id="HELP_ME"> Ayuda </span></a></li>
+            <li> <a href="{{ path('fos_user_security_logout') }}" align="right">  <span id="LOGOUT"> Salir </span></a></li>
+        </ul>
+    </div>
+    <div class="col-md-10 col-md-offset-2">
+        <p class="text-success h6 " align="right">
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                {{ 'Sesion Activa: %username%'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+            {% else %}
+                <a href="{{ path('fos_user_security_login') }}">{{ ''|trans({}, 'FOSUserBundle') }}</a>
+            {% endif %}
+        </p>
+    </div>
+</nav>
+-->
+    {% block body %}
+    {% endblock %}
+

@@ -9,6 +9,7 @@
         "doctrine/doctrine-bundle": "^2.7",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.20",
+        "friendsofsymfony/jsrouting-bundle": "^2.1",
         "friendsofsymfony/user-bundle": "^2.2",
         "phpdocumentor/reflection-docblock": "^6.0",
         "sensio/framework-extra-bundle": "^5.1",

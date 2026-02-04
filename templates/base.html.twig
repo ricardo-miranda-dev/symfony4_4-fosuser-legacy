@@ -1,19 +1,90 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,  user-scalable=no, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="description" content="MENU PRINCIPAL">
+    <meta name="DataFact" content="DataFact">
+    <title>{% if titulobase is defined %} {{ titulobase|raw }} {% else %} {{'Sistema Integral'}} {% endif %}</title>
+    <link rel="icon" type="image/png" href="{{ asset('assets/images/favicon.png') }}">
+    {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-theme.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/datepicker.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/datafact.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-select.min.css') }}">
+	{% endblock %}
+    
+    {% block javascripts %}
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap-datepicker.js') }}"></script>
+    <script src="{{ asset('assets/js/bootbox.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.bootstrap-growl.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap-select.min.js') }}"></script>
+    <script src="{{ asset('assets/js/principal.js') }}"></script>
+    <script src="{{ asset('assets/js/fmod.js') }}"></script>
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
-</html>
+    {# FOSJsRouting #}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+	{% endblock %}
+
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+	<script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+	<script src="https://kit.fontawesome.com/2114f69c89.js" crossorigin="anonymous"></script>
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
+   <!--   <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet" />-->
+  
+    <style>
+.iconostopXT{
+width:180px;
+}
+    </style>
+</head>
+<nav class="navbar navbar-default" role="navigation">
+    <table border="0px" align="center">
+        <tr>
+            <td width="10%" align="left"> <div class="navbar-header" align="left">
+                    <a target="_blank" href="  menu " align="right">
+						<img class="logotop1" src="{{ asset('assets/images/version_horizontal.png') }}">
+					</a>
+                    &nbsp;
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"  data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Desplegar navegaci&oacute;n</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+            </td>
+            <td width="72%" align="center" style="color: #90908C; font-size: 30px;"><b>{% if titulobase is defined %} {{ titulobase|raw }} {% endif %}</b></td>
+            <td width="20%" align="rigth">
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <ul class="nav navbar-nav  navbar-right">
+                      <!--
+                        <li><a target = "_blank" href="#" align="right"><span id="HELP_ME"> Ayuda </span></a></li>
+                        <li><a target = "_blank" href="micuenta" align="right">Mi cuenta&nbsp;&nbsp;<span id="INFO_USER"><i class="fa-solid fa-id-card"></i></span></a></li>-->
+                        <li> <a href="{{ path('fos_user_security_logout') }}" align="right">Salir&nbsp;&nbsp;<span id="LOGOUT"><i class="fa-solid fa-right-from-bracket"></i> </span></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-10 col-md-offset-2">
+                    <p class="text-success h6 " align="right">
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            {{ 'Sesion Activa: %username%'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                        {% else %}
+                            <a href="{{ path('fos_user_security_login') }}">{{ ''|trans({}, 'FOSUserBundle') }}</a>
+                        {% endif %}
+                    </p>
+                </div>
+
+            </td>
+        </tr>
+    </table>
+</nav>
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js'></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script> -->
+    {% block body %}
+    {% endblock %}
+

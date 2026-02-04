@@ -24,6 +24,8 @@ security:
             form_login:
                 login_path: fos_user_security_login
                 check_path: fos_user_security_check
+                default_target_path: menu_list
+                always_use_default_target_path: true
 
             logout:
                 path: fos_user_security_logout
