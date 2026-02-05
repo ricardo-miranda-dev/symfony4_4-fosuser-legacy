@@ -8,7 +8,7 @@
     <meta name="DataFact" content="DataFact">
     <title>{% if titulobase is defined %} {{ titulobase|raw }} {% else %} {{'Sistema Integral'}} {% endif %}</title>
     <link rel="icon" type="image/png" href="{{ asset('assets/images/favicon.png') }}">
-    {% block stylesheets %}
+    {#{% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-theme.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/datepicker.css') }}">
@@ -27,8 +27,19 @@
     <script src="{{ asset('assets/js/fmod.js') }}"></script>
 
     {# FOSJsRouting #}
-    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-	{% endblock %}
+    {#<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+	{% endblock %}#}
+    
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+        {{ encore_entry_link_tags('menu_css') }}
+    {% endblock %}
+    
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+        {{ encore_entry_script_tags('menu_js') }}
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    {% endblock %}
 
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
 	<script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
