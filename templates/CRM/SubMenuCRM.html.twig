@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="masthead">
+                {% if menu is defined %}
+                    {{ menu | raw}}
+                {% endif %}
+        </div>
+    </div>
+    <div>
+        <br><br><ul class="pager"><li class="previous"><a href="menu">&larr; Anterior</a></li></ul>
+    </div>
+{% endblock %}

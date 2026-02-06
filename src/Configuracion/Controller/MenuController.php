@@ -113,14 +113,7 @@ class MenuController extends AbstractController
                 }
 
             }
-            ///////////Nuevo ini
-            /*$menu .= '<div class="col-xs-12 col-md-2">
-                                        <a href="GEVentas/buscaPedidosWAPP">
-                                            <img class="iconostop" src="' . $ruta . 'nuevopedido.png' . '" alt="Example" " />
-                                        </a>
-                                         <br>Web App
-                                   </div>';*/
-            //////////Nuevo fin
+            
         }else{
             $menu ='<h2>NO HAY MENU CONFIGURADO</h2>';
         }
