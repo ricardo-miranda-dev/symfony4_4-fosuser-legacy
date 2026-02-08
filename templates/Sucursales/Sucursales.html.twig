@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}	
+    <link rel="stylesheet" href="{{ asset('assets/css/sucursales.css') }}">
+	<link rel="stylesheet" href="{{ asset('assets/css/datatables.min.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <strong>Datos Generales</strong>
+        </div>
+
+        <div class="panel-body">
+            <form id="sucursal-form">
+
+                <input type="hidden" id="xIdSucursal" value="{{ sucursal.id ?? '' }}">
+
+                {% include 'Sucursales/Sucursales_form_fields.html.twig' %}
+
+                <div class="text-right">
+                    <button type="button"
+                            class="btn btn-success"
+                            id="btn-guardar">
+                        Guardar Sucursal
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <strong>Sucursales Registradas</strong>
+        </div>
+
+        <div class="panel-body">
+            {% include 'Sucursales/Sucursales_table.html.twig' %}
+        </div>
+    </div>
+
+</div>
+<ul class="pager">
+            <li class="previous"><a href="{% if link[1] is defined %}  {{ link[1] }}  {% else %} {{ '../../sucursales' }} {% endif %}">&larr; Anterior</a></li>
+        </ul>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+	<script src="{{ asset('assets/js/jquery.js') }}"></script>
+    <script src="{{ asset('assets/js/sucursales.js') }}"></script>
+	<script src="{{ asset('assets/js/datatables.min.js') }}"></script>
+	<script src="{{ asset('assets/js/jquery.bootstrap-growl.js') }}"></script>
+	<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <!--<script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>-->
+{% endblock %}

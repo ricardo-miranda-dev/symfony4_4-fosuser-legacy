@@ -1,0 +1,253 @@
+.botonExcel{cursor:pointer;}
+        .oculta {
+            display: none;
+        }
+        
+        .rotate {
+            text-align:center;
+            white-space:nowrap;
+            transform: rotate(90deg);
+            position: relative;
+            left: -50px;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 30px;
+            height: 19px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 15px;
+            width: 15px;
+            left: 1px;
+            bottom: 2px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(13px);
+            -ms-transform: translateX(13px);
+            transform: translateX(13px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 12px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+        .table-wrapper {
+            width: 100%;
+            height: 500px; /* Altura de ejemplo */
+            overflow: auto;
+        }
+
+        .table-wrapper table {
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        
+        .table {
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .table-wrapper table thead {
+            position: -webkit-sticky;
+            /*position: sticky;*/
+            top: 0;
+            left: 0;
+        }
+
+        .table-wrapper table thead th,
+        .table-wrapper table tbody td {
+
+            background-color: #FFF;
+        }
+        table.scroll {
+            width: 20%; /* 140px * 5 column + 16px scrollbar width */
+            border-spacing: 0;
+            /*border: 2px solid black;*/
+        }
+
+        table.scroll tbody,
+        table.scroll thead tr { display: block; }
+
+        table.scroll tbody {
+            height: 500px;
+            overflow-y: auto;
+            /*overflow-x: scroll;*/
+        }
+
+        table.scroll tbody td,
+        table.scroll thead th {
+            width: 500px;
+
+        }
+
+        table.scroll thead th:last-child {
+            width: 500px; /* 140px + 16px scrollbar width */
+        }
+
+        thead tr th {
+            height: 30px;
+            line-height: 30px;
+            /*text-align: left;*/
+        }
+
+        tbody {  }
+
+        tbody td:last-child, thead th:last-child {
+            border-right: none !important;
+        }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: #0000ff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 150%;
+            left: 50%;
+            margin-left: -60px;
+        }
+
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
+        .navMenu {
+            top: 150px;
+            left: 200px;
+           /* width: 2400px;
+            height: 2400px;*/
+            z-index: 100;
+           /* border:5px solid #000;*/
+
+
+            background: linear-gradient(90deg, #4ca9ff, rgba(48, 61, 0, 0.37), #ffb900);
+            -webkit-background: linear-gradient(90deg, #ffb900, #CCFF00, #ffb900);
+           /* background-size: 400% 400%;*/
+           /* -webkit-background-size: 400% 400%;*/
+            animation: gradient 5s infinite;
+            -webkit-animation: gradient 5s infinite;
+        }
+        .body {
+            background-color: blue;
+        }
+        .thead-dark {
+        th {
+            color: blue;
+            background-color: blue;
+            border-color: blue;
+            }
+        }
+        .blanco{color:white}
+        .divscroll {
+  height: 5em;
+  line-height: 1em;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 100%;
+  border: 1px solid;
+}
+.divscroll2 {
+  height: 5em;
+  line-height: 1em;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 100%;
+  border: 1px solid;
+}
+.divscroll3 {
+  height: 5em;
+  line-height: 1em;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 100%;
+  border: 1px solid;
+}
+.divscroll4 {
+  height: 5em;
+  line-height: 1em;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 100%;
+  border: 1px solid;
+}
+.divscroll5 {
+  height: 5em;
+  line-height: 1em;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 100%;
+  border: 1px solid;
+}
+.divscroll7 {
+  height: 5em;
+  line-height: 1em;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 100%;
+  border: 1px solid;
+}
+.divscroll8 {
+  height: 5em;
+  line-height: 1em;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 100%;
+  border: 1px solid;
+}

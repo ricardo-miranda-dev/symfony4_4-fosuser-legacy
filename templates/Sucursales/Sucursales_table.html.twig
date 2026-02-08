@@ -1,0 +1,60 @@
+<table id="tablaSucursales" class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Sucursal</th>
+            <th>Matriz</th>
+            <th>RUC</th>
+            <th>Correo</th>
+            <th>Teléfono</th>
+            <th>Contabilidad</th>
+            <th>Estado</th>
+            <th style="width: 80px;">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for suc in sucursales %}
+            <tr>
+                <td>{{ suc.id }}</td>
+                <td>{{ suc.sucursal }}</td>
+                <td>{{ suc.matriz }}</td>
+                <td>{{ suc.ruc }}</td>
+                <td>{{ suc.correo }}</td>
+                <td>{{ suc.telefono }}</td>
+                <td>
+                    {% if suc.llevaCont == 'SI' %}
+                        <span class="badge badge-success">SI</span>
+                    {% else %}
+                        <span class="badge badge-secondary">NO</span>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if suc.estado == 1 %}
+                        <span class="badge badge-success">Activo</span>
+                    {% else %}
+                        <span class="badge badge-danger">Inactivo</span>
+                    {% endif %}
+                </td>
+                <td class="text-center">
+                    <a href="{{ path('postActionSucursales', {id: suc.id}) }}"
+                       class="btn btn-sm btn-primary"
+                       title="Editar">
+                        <i class="fa fa-edit"></i>
+                    </a>
+					<button type="button"
+						class="btn btn-sm btn-danger"
+						title="Borrar"
+						onclick="borrarSucursal({{ suc.id }})">
+						<i class="fa fa-trash"></i>
+					</button>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9" class="text-center text-muted">
+                    No existen sucursales registradas
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
