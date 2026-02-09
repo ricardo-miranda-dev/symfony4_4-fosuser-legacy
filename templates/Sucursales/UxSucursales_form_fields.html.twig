@@ -1,0 +1,56 @@
+<div class="row">
+
+    <div class="col-md-4">
+    <label>Sucursal</label>
+    <select id="xSuc" class="form-control">
+        <option value="">Seleccione</option>
+        {% for suc in sucursales %}
+            <option value="{{ suc.id }}"
+                {% if uxsucursal is not null and uxsucursal.Suc == suc.id %}
+					selected
+				{% endif %}
+            >
+                {{ suc.sucursal }}
+            </option>
+        {% endfor %}
+    </select>
+</div>
+
+
+    <div class="col-md-4">
+    <label>Usuario</label>
+    <select id="xUs" class="form-control">
+        <option value="">Seleccione</option>
+
+        {% for emp in empleados %}
+            <option value="{{ emp.empleadoId }}"
+                {% if uxsucursal is not null and uxsucursal.Us == emp.empleadoId %}
+                    selected
+                {% endif %}
+            >
+                {{ emp.label }}
+            </option>
+        {% endfor %}
+    </select>
+</div>
+
+
+    <div class="col-md-4">
+    <label>Sucursal</label>
+    <select id="xDef" class="form-control">
+        <option value="">Seleccione</option>
+        {% for suc in sucursales %}
+            <option value="{{ suc.id }}"
+                {% if uxsucursal is not null and uxsucursal.Def == suc.id %}
+					selected
+				{% endif %}
+            >
+                {{ suc.sucursal }}
+            </option>
+        {% endfor %}
+    </select>
+</div>
+
+
+
+</div>

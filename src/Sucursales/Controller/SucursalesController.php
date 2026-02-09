@@ -31,8 +31,14 @@ class SucursalesController extends AbstractController
         if ($id) {
             $sucursal = $this->sucursalRepository->find($id);
         }
+		
+		$titulo = "Registro de Sucursales";
+		$link[0] = '../../menu';
+        $link[1] = '../../sucursales';
 
         return $this->render('Sucursales/Sucursales.html.twig', [
+			'titulobase' => $titulo,
+			'link' => $link,
             'sucursal' => $sucursal,
             'sucursales' => $this->sucursalRepository->findBy([], ['id' => 'DESC'])
         ]);
@@ -63,7 +69,7 @@ class SucursalesController extends AbstractController
 
             return new JsonResponse([
                 'success' => true,
-                'message' => 'Sucursal guardada correctamente'
+                'message' => 'Usuario guardado correctamente'
             ]);
         }
 
@@ -103,7 +109,7 @@ class SucursalesController extends AbstractController
 
             return new JsonResponse([
                 'success' => true,
-                'message' => 'Sucursal eliminada correctamente'
+                'message' => 'Usuario eliminado correctamente'
             ]);
         }
 
@@ -117,7 +123,7 @@ class SucursalesController extends AbstractController
         return new JsonResponse([
             'success' => false,
             'message' => 'Error interno del servidor',
-            'debug'   => $e->getMessage() // puedes quitarlo en prod
+            'debug'   => $e->getMessage() 
         ], 500);
     }
 }

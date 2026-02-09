@@ -58,7 +58,7 @@ width:180px;
     <table border="0px" align="center">
         <tr>
             <td width="10%" align="left"> <div class="navbar-header" align="left">
-                    <a target="_blank" href="  menu " align="right">
+                    <a target="_blank" href="{% if link[0] is defined %}  {{ link[0] }}  {% else %} {{ 'menu' }} {% endif %}" align="right">
 						<img class="logotop1" src="{{ asset('assets/images/version_horizontal.png') }}">
 					</a>
                     &nbsp;
