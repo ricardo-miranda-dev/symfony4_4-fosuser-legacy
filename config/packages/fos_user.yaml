@@ -4,8 +4,17 @@ fos_user:
     user_class: App\Entity\User
 
     from_email:
-        address: "no-reply@tudominio.com"
-        sender_name: "Symfony Legacy App"
-
+        address: ressetingrequest@datafact.com.ec
+        sender_name: 'Symfony Legacy App'
+    
     service:
         mailer: fos_user.mailer.twig_swift
+
+    use_listener: true
+    use_authentication_listener: true
+
+
+    resetting:
+        retry_ttl: 7200
+        token_ttl: 86400
+

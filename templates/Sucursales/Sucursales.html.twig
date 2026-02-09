@@ -52,9 +52,10 @@
 {% block javascripts %}
     {{ parent() }}
 	<script src="{{ asset('assets/js/jquery.js') }}"></script>
-    <script src="{{ asset('assets/js/sucursales.js') }}"></script>
-	<script src="{{ asset('assets/js/datatables.min.js') }}"></script>
-	<script src="{{ asset('assets/js/jquery.bootstrap-growl.js') }}"></script>
+        <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+        <script src="{{ asset('assets/js/jquery.bootstrap-growl.js') }}"></script>
+        <script src="{{ asset('assets/js/sucursales.js') }}"></script>
+	<script src="{{ asset('assets/js/datatables.min.js') }}"></script>	
 	<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
     <!--<script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>-->
 {% endblock %}

@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/datepicker.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/datafact.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-select.min.css') }}">
-	{% endblock %}
+	{% endblock %}#}
     
     {% block javascripts %}
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
@@ -23,26 +23,26 @@
     <script src="{{ asset('assets/js/bootbox.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.bootstrap-growl.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap-select.min.js') }}"></script>
-    <script src="{{ asset('assets/js/principal.js') }}"></script>
     <script src="{{ asset('assets/js/fmod.js') }}"></script>
 
     {# FOSJsRouting #}
-    {#<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-	{% endblock %}#}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+    {#<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>#}
+	{% endblock %}
     
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
         {{ encore_entry_link_tags('menu_css') }}
     {% endblock %}
     
-    {% block javascripts %}
+    {#{% block javascripts %}
         {{ encore_entry_script_tags('app') }}
         {{ encore_entry_script_tags('menu_js') }}
         <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-    {% endblock %}
+    {% endblock %}#}
 
-    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-	<script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+    
 	<script src="https://kit.fontawesome.com/2114f69c89.js" crossorigin="anonymous"></script>
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">

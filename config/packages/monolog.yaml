@@ -1,0 +1,6 @@
+monolog:
+    handlers:
+        swift:
+            type: stream
+            path: "%kernel.logs_dir%/swift.log"
+            level: debug
