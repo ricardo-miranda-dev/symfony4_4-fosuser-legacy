@@ -22,7 +22,16 @@ use BG\BarcodeBundle\Util\Base2DBarcode as matrixCode;
 class funciones extends AbstractController
 {
     
-    
+    private $lazyconexion = null;
+
+    public function getLazyConexion($bd, $empresa)
+    {
+        if ($this->lazyconexion === null) {
+            $this->lazyconexion = $this->abrirconexion($bd, $empresa);
+        }
+
+        return $this->lazyconexion;
+    }
 
     public function consultaBD($sql, $dbname,$usuario)
     {
