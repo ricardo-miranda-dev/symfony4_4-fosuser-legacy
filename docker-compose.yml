@@ -1,0 +1,12 @@
+
+services:
+  symfony4_4_fos_app:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    container_name: symfony4_4_fos_app
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/var/www/html
+    restart: unless-stopped

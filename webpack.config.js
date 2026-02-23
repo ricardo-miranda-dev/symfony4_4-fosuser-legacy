@@ -12,7 +12,8 @@ Encore
     // public path used by the web server to access the output path
    
     .setOutputPath('public/build/')
-    .setPublicPath('/Symfony/Symfony4_4_FOS/public/build')
+	.setPublicPath('/build')
+    //.setPublicPath('/Symfony/Symfony4_4_FOS/public/build')
     // only needed for CDN's or sub-directory deploy
     //.setManifestKeyPrefix('build/')
 
